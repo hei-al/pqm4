@@ -35,7 +35,10 @@ def parse_arguments():
 def get_platform(args):
     platform = None
     bin_type = 'bin'
-    if args.platform in ['stm32f4discovery', 'nucleo-l476rg']:
+    if args.platform == 'stm32f4discovery':
+        bin_type = 'hex'
+        platform = platforms.OpenOCD("st_stm32f4discovery.cfg", args.uart)
+    elif args.platform == 'nucleo-l476rg':
         platform = platforms.StLink(args.uart)
     elif args.platform == "nucleo-l4r5zi":
         bin_type = 'hex'

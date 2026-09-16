@@ -10,3 +10,5 @@ bin/
 bin-host/
 compile_commands.json
 .vscode
+toolchain/
+.venv/
